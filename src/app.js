@@ -36,6 +36,19 @@ app.get("/about", (req,res)=>{
     res.send("hello from the about page")
 })
 
+app.get("/about/*", (req,res)=>{
+    res.render("404",{
+        errorComment:" this about does not exist"
+    })
+})
+app.get("*", (req,res)=>{
+    res.render("404", {
+        errorComment:"oops page not found"
+    })
+})
+
+
+
 //built in middleware
 // app.use(express.static(publicPath))  //to serve the static page 
 
