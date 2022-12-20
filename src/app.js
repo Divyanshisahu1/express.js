@@ -5,14 +5,22 @@ const app = express()
 
 // let publicPath = path.join(__dirname,"../public")
 // console.log(publicPath)
-
+let templatePath = path.join(__dirname,"../template")
 app.set("view engine", "hbs")
+app.set("views", templatePath)
 
 app.get("/", (req,res)=>{
     res.render("index",{
         designation:"Software Developer"
     })
 })
+
+app.get("/about",(req,res)=>{
+    res.render("about",{
+        likes:"Momos"
+    })
+})
+
 
 app.get("/", (req, res)=>{
     res.send("hello from the express")
