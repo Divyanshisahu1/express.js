@@ -1,11 +1,18 @@
 const express = require("express");
 const path = require("path")
 const app = express()
-console.log(__dirname)
+// console.log(__dirname)
 
-let publicPath = path.join(__dirname,"../public")
-console.log(publicPath)
+// let publicPath = path.join(__dirname,"../public")
+// console.log(publicPath)
 
+app.set("view engine", "hbs")
+
+app.get("/", (req,res)=>{
+    res.render("index",{
+        designation:"Software Developer"
+    })
+})
 
 app.get("/", (req, res)=>{
     res.send("hello from the express")
@@ -16,7 +23,7 @@ app.get("/about", (req,res)=>{
 })
 
 //built in middleware
-app.use(express.static(publicPath))  //to serve the static page 
+// app.use(express.static(publicPath))  //to serve the static page 
 
 app.listen(8000,()=>{
     console.log("listening to port 8000")
