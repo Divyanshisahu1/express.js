@@ -1,11 +1,17 @@
 const express = require("express");
 const path = require("path")
 const app = express()
+const hbs = require("hbs")
 // console.log(__dirname)
 
 // let publicPath = path.join(__dirname,"../public")
 // console.log(publicPath)
-let templatePath = path.join(__dirname,"../template")
+
+// let templatePath = path.join(__dirname,"../template")
+let templatePath = path.join(__dirname,"../template/views")
+let partialPath = path.join(__dirname,"../template/partials")
+hbs.registerPartials(partialPath)
+
 app.set("view engine", "hbs")
 app.set("views", templatePath)
 
